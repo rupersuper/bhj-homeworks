@@ -5,7 +5,7 @@ let clickerCounter = parseInt(clickerCounterElement.textContent) + 1;
 
 let lastClickTime = Date.now();
 
-clickerImage.onclick = function () {
+clickerImage.onclick = () => {
   const time = 1000 / (Date.now() - lastClickTime);
   lastClickTime = Date.now();
   clickerImage.width = clickerImage.width === 250 ? 200 : 250;
