@@ -1,4 +1,4 @@
-const board = document.querySelectorAll(".hole");
+const board = document.getElementsByClassName("hole");
 const deadElement = document.getElementById("dead");
 const lostElement = document.getElementById("lost");
 let lostCount = null;
