@@ -1,8 +1,8 @@
 const board = document.getElementsByClassName("hole");
 const deadElement = document.getElementById("dead");
 const lostElement = document.getElementById("lost");
-let lostCount = null;
 let deadCount = null;
+let lostCount = null;
 
 function getHole(index) {
   return document.getElementById(`hole${index}`);
