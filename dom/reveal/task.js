@@ -4,11 +4,11 @@ function isVisible(el) {
   const { top, bottom } = el.getBoundingClientRect();
 
   if (bottom < 0) {
-    return;
+    return false;
   }
 
   if (top > window.innerHeight) {
-    return;
+    return false;
   }
   return true;
 }
