@@ -3,7 +3,7 @@ const btn = document.querySelector(".dropdown__value");
 const dropdownItems = document.querySelectorAll(".dropdown__link");
 
 btn.addEventListener("click", () => {
-  menu.classList.add("dropdown__list_active");
+  menu.classList.toggle("dropdown__list_active");
 });
 
 dropdownItems.forEach((value) => {
