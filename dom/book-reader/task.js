@@ -8,6 +8,7 @@ const colorBackground = document.querySelectorAll(
 fontSize.forEach((element) => {
   element.addEventListener("click", (event) => {
     event.preventDefault();
+    // const { size, textColor, bgColor } = event.target.dataset;
 
     fontSize.forEach((element) => {
       element.classList.remove("font-size_active");
