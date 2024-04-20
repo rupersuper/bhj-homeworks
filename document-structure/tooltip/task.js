@@ -5,7 +5,7 @@ tooltip.className = "tooltip";
 hasTooltip.forEach((el) => {
   el.addEventListener("click", (event) => {
     event.preventDefault();
-    el.appendChild(tooltip);
+    el.after(tooltip);
     if (tooltip.textContent === el.title) {
       tooltip.classList.toggle("tooltip_active");
     } else {
