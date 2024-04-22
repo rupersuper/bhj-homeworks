@@ -1,8 +1,8 @@
 const xhr = new XMLHttpRequest();
-const fileElem = document.getElementById("file");
+const inputFile = document.querySelector("#file");
 const progress = document.querySelector("#progress");
 
-fileElem.addEventListener("change", function () {
+inputFile.addEventListener("change", function () {
   let file = this.files[0];
   if (file) {
     uploadFile(file);
@@ -13,9 +13,9 @@ function uploadFile(file) {
   const formData = new FormData();
   formData.append("file", file);
 
-  xhr.upload.addEventListener("progress", function (e) {
-    if (e.lengthComputable) {
-      const progressValue = (e.loaded / e.total).toFixed(2);
+  xhr.upload.addEventListener("progress", function (event) {
+    if (event.lengthComputable) {
+      const progressValue = (event.loaded / event.total).toFixed(2);
       progress.value = progressValue;
     }
   });
