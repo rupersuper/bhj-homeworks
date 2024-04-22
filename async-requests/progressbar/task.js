@@ -23,7 +23,7 @@ function uploadFile(file) {
   xhr.open("POST", "https://students.netoservices.ru/nestjs-backend/upload");
 
   xhr.onloadend = function () {
-    if (xhr.status >= 400) {
+    if (this.status >= 400) {
       console.log("Ошибка " + this.status);
     } else {
       console.log("Успех " + this.status);

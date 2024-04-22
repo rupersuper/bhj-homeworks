@@ -5,8 +5,8 @@ const poolAnswers = document.querySelector(".poll__answers");
 xhr.open("GET", "https://students.netoservices.ru/nestjs-backend/poll");
 
 xhr.onload = function () {
-  if (xhr.status === 200) {
-    const pool = JSON.parse(xhr.response);
+  if (this.status === 200) {
+    const pool = JSON.parse(this.response);
     const {
       data: { answers, title },
     } = pool;
@@ -25,7 +25,7 @@ xhr.onload = function () {
       });
     });
   } else {
-    console.log("Ошибка " + xhr.status);
+    console.log("Ошибка " + this.status);
   }
 };
 

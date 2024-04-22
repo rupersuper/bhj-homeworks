@@ -1,6 +1,6 @@
+const xhr = new XMLHttpRequest();
 const loader = document.querySelector("#loader");
 const itemsContainer = document.querySelector("#items");
-const xhr = new XMLHttpRequest();
 
 xhr.addEventListener("readystatechange", () => {
   if (xhr.readyState === xhr.DONE) {
@@ -18,7 +18,6 @@ xhr.onload = function () {
   for (const currencyCode in valute) {
     if (valute.hasOwnProperty(currencyCode)) {
       const item = valute[currencyCode];
-      //   console.log(item.CharCode);
       const code = item.CharCode;
       const value = item.Value;
       const itemValue = `<div class="item"><div class="item__code">${code}</div><div class="item__value">${value}</div><div class="item__currency">руб.</div></div>`;
