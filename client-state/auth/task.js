@@ -33,7 +33,7 @@ form.addEventListener("submit", function (event) {
   })
     .then((response) => {
       if (!response.ok) {
-        throw new Error("Ошибка HTTP: " + response.status);
+        throw new Error(response.status);
       }
       return response.json();
     })
@@ -47,8 +47,5 @@ form.addEventListener("submit", function (event) {
         alert("Не правильный логин либо пароль");
         form.reset();
       }
-    })
-    .catch((error) => {
-      console.error("Ошибка:", error);
     });
 });
