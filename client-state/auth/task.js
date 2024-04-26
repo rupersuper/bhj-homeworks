@@ -2,12 +2,18 @@ const form = document.querySelector("#signin__form");
 const singnInBlock = document.querySelector("#signin");
 const welcomeBlock = document.querySelector("#welcome");
 const userId = document.querySelector("#user_id");
+const signUpBtn = document.querySelector("#signup__btn");
 
 if (localStorage.getItem("user_id")) {
   singnInBlock.classList.remove("signin_active");
   welcomeBlock.classList.add("welcome_active");
   userId.innerHTML = localStorage.getItem("user_id");
 }
+
+signUpBtn.addEventListener("click", () => {
+  localStorage.clear();
+  location.reload();
+});
 
 form.addEventListener("submit", function (event) {
   event.preventDefault();
