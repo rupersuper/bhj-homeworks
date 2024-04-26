@@ -1,19 +1,23 @@
-// document.addEventListener('DOMContentLoaded', function () {
 const form = document.querySelector("#signin__form");
 const singnInBlock = document.querySelector("#signin");
 const welcomeBlock = document.querySelector("#welcome");
 const userId = document.querySelector("#user_id");
 
-form.addEventListener("submit", function (event) {
-  event.preventDefault(); // Предотвратить отправку формы
+if (localStorage.getItem("user_id")) {
+  singnInBlock.classList.remove("signin_active");
+  welcomeBlock.classList.add("welcome_active");
+  userId.innerHTML = localStorage.getItem("user_id");
+}
 
-  const formData = new FormData(form); // Получить данные из формы
+form.addEventListener("submit", function (event) {
+  event.preventDefault();
+
+  const formData = new FormData(form);
   const formDataObject = {};
   formData.forEach((value, key) => {
     formDataObject[key] = value;
   });
 
-  // Отправить запрос на сервер
   fetch("https://students.netoservices.ru/nestjs-backend/auth", {
     method: "POST",
     headers: {
@@ -29,18 +33,16 @@ form.addEventListener("submit", function (event) {
     })
     .then((data) => {
       if (data.success === true) {
-		singnInBlock.classList.remove("signin_active");
+        singnInBlock.classList.remove("signin_active");
         welcomeBlock.classList.add("welcome_active");
         userId.innerHTML = data.user_id;
+        localStorage.setItem("user_id", data.user_id);
       } else {
         alert("Не правильный логин либо пароль");
+        form.reset();
       }
-
-      // Обработать ответ от сервера
-      console.log(data); // Здесь можно выполнить нужные действия, например, перенаправление на другую страницу
     })
     .catch((error) => {
       console.error("Ошибка:", error);
     });
 });
-// });
