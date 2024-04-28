@@ -11,7 +11,7 @@ if (localStorage.getItem("user_id")) {
 }
 
 signUpBtn.addEventListener("click", () => {
-  localStorage.clear();
+  localStorage.removeItem("user_id");
   location.reload();
 });
 

@@ -1,7 +1,10 @@
 const modal = document.querySelector(".modal");
 const closeBtn = document.querySelector(".modal__close");
 
-closeBtn.addEventListener("click", () => setCookie("modalClose"));
+closeBtn.addEventListener("click", () => {
+  setCookie("modalClose");
+  modal.classList.remove("modal_active");
+});
 
 if (getCookie("modalClose") === "true") {
   modal.classList.remove("modal_active");
@@ -10,7 +13,6 @@ if (getCookie("modalClose") === "true") {
 }
 
 function setCookie(name) {
-  modal.classList.remove("modal_active");
   document.cookie = name + " = " + "true";
 }
 

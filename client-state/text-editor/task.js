@@ -3,11 +3,11 @@ const btn = document.querySelector(".btn");
 
 textArea.value = localStorage.getItem("text");
 
-textArea.addEventListener("change", (event) => {
+textArea.addEventListener("input", (event) => {
   localStorage.setItem("text", event.target.value);
 });
 
 btn.addEventListener("click", () => {
   textArea.value = null;
-  localStorage.clear();
+  localStorage.removeItem("text");
 });
